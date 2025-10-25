@@ -14,30 +14,35 @@
     }
 
     body {
-      background: #f9fafb;
-      color: #333;
+      background: #181818; /* slightly lighter dark background */
+      color: #f1f1f1;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
-      background: #0d6efd;
-      color: white;
+      background: #1f1f1f;
+      color: #f8f9fa;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 2px solid #525252;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 2.3rem;
+      letter-spacing: 1px;
     }
 
     header p {
       font-size: 1.1rem;
       margin-top: 0.5rem;
+      color: #bfbfbf;
     }
 
     section {
-      padding: 2rem 1rem;
-      max-width: 800px;
+      padding: 3rem 1rem;
+      max-width: 850px;
       margin: auto;
     }
 
@@ -45,65 +50,136 @@
       color: #0d6efd;
       border-bottom: 2px solid #0d6efd;
       display: inline-block;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.6rem;
     }
 
     .about p {
       margin-top: 1rem;
       font-size: 1.1rem;
+      color: #ddd;
     }
 
-    .skills ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
+    .skills {
+  text-align: center;
+}
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .skills li {
-      background: #e7f1ff;
+    .skill-box {
+      background: #1f1f1f;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .skill-box h3 {
       color: #0d6efd;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: 500;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-box p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     .project {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 1rem;
+      background: #1f1f1f;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      padding: 1.5rem;
       margin-top: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
     }
 
     .project h3 {
       color: #0d6efd;
       margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .project p {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .project a {
-      color: #0d6efd;
+      color: #66b3ff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    p.github {
+      text-align: center;
+      margin-top: 2rem;
+      color: #ccc;
+    }
+
+    p.github a {
+      color: #66b3ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    p.github a:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
-      padding: 1.5rem;
-      background: #0d6efd;
-      color: white;
-      margin-top: 2rem;
+      padding: 2rem 1rem;
+      background: #1f1f1f;
+      color: #f8f9fa;
+      margin-top: 3rem;
+      border-top: 2px solid #0d6efd;
+      font-size: 0.95rem;
     }
 
     footer a {
-      color: #ffd966;
+      color: #66b3ff;
       text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+      .skills li {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
       }
     }
   </style>
@@ -120,15 +196,26 @@
   </section>
 
   <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>Laravel</li>
-      <li>Django</li>
-      <li>Data Analytics</li>
-    </ul>
-  </section>
+  <h2>Skills</h2>
+  <div class="skill-grid">
+    <div class="skill-box">
+      <h3>HTML & CSS</h3>
+      <p>Build responsive and accessible web layouts with clean, structured code and modern styling techniques.</p>
+    </div>
+    <div class="skill-box">
+      <h3>Laravel</h3>
+      <p>Develop dynamic and secure web applications using Laravel’s MVC framework and Blade templating.</p>
+    </div>
+    <div class="skill-box">
+      <h3>Django</h3>
+      <p>Create efficient back-end systems and REST APIs with Django, integrating with relational databases.</p>
+    </div>
+    <div class="skill-box">
+      <h3>Data Analytics</h3>
+      <p>Analyze datasets and visualize insights using Python and R to support data-driven decision-making.</p>
+    </div>
+  </div>
+</section>
 
   <section class="projects">
     <h2>Projects</h2>
@@ -139,7 +226,7 @@
     </div>
   </section>
 
-  <p>GitHub: <a href="https://github.com/IchiroEmmanuelPongos" target="_blank">IchiroEmmanuelPongos</a></p>
+  <p class="github">GitHub: <a href="https://github.com/IchiroEmmanuelPongos" target="_blank">IchiroEmmanuelPongos</a></p>
 
   <footer>
     <p>Contact me at <a href="mailto:pongos.emman@gmail.com">pongos.emman@gmail.com</a></p>
